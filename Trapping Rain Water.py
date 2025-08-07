@@ -47,4 +47,31 @@ class Solution:
 
 traprain = Solution()
 traprain.trap([0,2,0,3,1,0,1,3,2,1])
+
+
+
+
+# Solution 3
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        res = 0
+        l, r = 0, len(height) - 1
+
+        leftMax = height[l]
+        rightMax = height[r]
+        while l < r:
+            if height[l] <= height[r]:
+                l += 1
+                leftMax = max(height[l], leftMax)
+                res += leftMax - height[l]
+            elif height[l] > height[r]:
+                r -= 1
+                rightMax = max(height[r], rightMax)
+                res += rightMax - height[r]
+
+        return res
+
+
+traprain = Solution()
+traprain.trap([0,2,0,3,1,0,1,3,2,1])
         
