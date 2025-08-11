@@ -14,15 +14,14 @@ class MinStack:
         return self.stack[-1]
 
     def getMin(self) -> int:
-        tmp = 0
+        tmp = self.stack[0]
         for i in range(len(self.stack)):
             for j in range(i+1,len(self.stack)):
                 if self.stack[i] < self.stack[j]:
-                    tmp = self.stack[i]
+                    tmp = min(tmp, self.stack[i])
                 else:
-                    tmp = self.stack[j]
+                    tmp = min(tmp, self.stack[j])
         return tmp
-
 
 
 
