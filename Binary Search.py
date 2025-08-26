@@ -11,3 +11,7 @@ class Solution:
             else:
                 l = mid + 1
         return -1
+
+
+binsearch = Solution()
+binsearch.search([-1,0,2,4,6,8],4)
